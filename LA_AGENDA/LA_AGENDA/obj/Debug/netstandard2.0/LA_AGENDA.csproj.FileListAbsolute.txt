@@ -1,0 +1,16 @@
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\LA_AGENDA.deps.json
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\LA_AGENDA.dll
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\ref\LA_AGENDA.dll
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\LA_AGENDA.pdb
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.csprojAssemblyReference.cache
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Start.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.AssemblyInfoInputs.cache
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.AssemblyInfo.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.csproj.CoreCompileInputs.cache
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.dll
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\ref\LA_AGENDA.dll
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.pdb
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Agregar.xaml.g.cs

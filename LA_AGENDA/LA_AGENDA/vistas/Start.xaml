@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LA_AGENDA.vistas.Start"
+             Title="A G E N D A"
+             Background="{DynamicResource WindowBackgroundBrush}">
+    
+    <StackLayout    HorizontalOptions="Center" VerticalOptions="Center" >
+        
+        <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+            <Button x:Name="btnNueva" Text="Nueva Reunión" CornerRadius="50" ></Button>
+        </Frame>
+
+        <StackLayout HeightRequest="25" >
+        </StackLayout>
+
+        <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+            <Button x:Name="btnRevisar" Text="Revisar Reuniones" CornerRadius="50"/>
+        </Frame>
+      
+        <StackLayout HeightRequest="25" >
+        </StackLayout>
+
+        <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+            <Button x:Name="btnSalir" Text="Salir" BackgroundColor="Orange" CornerRadius="45"/>
+        </Frame>
+
+    </StackLayout>
+</ContentPage>

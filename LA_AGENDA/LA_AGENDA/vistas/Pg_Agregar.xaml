@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LA_AGENDA.vistas.Pg_Agregar"
+             Title="Nueva Reunión"
+             Background="{DynamicResource WindowBackgroundBrush}">
+    <ContentPage.Content>
+
+        <StackLayout Padding="30">
+            <StackLayout HeightRequest="20" Spacing="20">
+            </StackLayout>
+
+            <ScrollView >
+                <StackLayout HeightRequest="500" Spacing="20" HorizontalOptions="Center">
+                    <!--Ingreso de Nombre-->
+                    <Entry x:Name="Nombre" TextTransform="Uppercase" PlaceholderColor="Gray" Placeholder="Ingrese un nombre" HorizontalTextAlignment="Center">
+                    </Entry>
+
+                    <!--Ingreso Lugar-->
+                    <Entry x:Name="Lugar" PlaceholderColor="Gray" Placeholder="Ingrese el Lugar" HorizontalTextAlignment="Center">
+                    </Entry>
+
+                    <!--Ingreso Fecha-->
+                    <Label Text="&#10;Seleccione la fecha para la Reunión: " >
+                    </Label>
+                    <!--Fecha inicial, invisible se auto selecciona dia en curso-->
+                    <DatePicker IsVisible="false" x:Name="startDatePicker"
+                        Format="D" DateSelected="OnDateSelected" />
+                    <!--Fecha SELECCIONABLE-->
+                    <DatePicker x:Name="endDatePicker" HorizontalOptions="Center"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker},Path=Date}"
+                        Format="D" Margin="10, 0, 0, 10"  DateSelected="OnDateSelected" />
+
+                    <!--Muestra cúantos dias faltan -->
+                    <Label x:Name="resultLabel" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                    <!--Ingreso Hora-->
+                    <TimePicker x:Name="_timePicker" HorizontalOptions="Center"
+                        Time="11:00:00"
+                        Format="T"
+                        PropertyChanged="OnTimePickerPropertyChanged" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Con Alerta ??" />
+                        <Switch x:Name="_switch"
+                    HorizontalOptions="EndAndExpand"
+                    Toggled="AlarmSwitchToggled" />
+                    </StackLayout>
+                    
+                    <!--Comprobadores temporales-->
+                    <StackLayout>
+                        <Label x:Name="Fecha_resultante" Text=""></Label>
+                        <Label x:Name="Hora_resultante" Text=""></Label>
+                        <Label x:Name="FechayHora" Text=""></Label>
+                    </StackLayout>
+
+                    <!--Ingreso Anotaciones-->
+                    <Editor x:Name="Anotaciones" Placeholder="Notas..." AutoSize="TextChanges" MaxLength="200" IsSpellCheckEnabled="False"
+                            Completed="onEditorCompleted" >
+                    </Editor>
+
+                </StackLayout>
+            </ScrollView>
+            <Button x:Name="btnGuardar" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onGuardar">
+
+                <Button.Text>
+                    G U A R D A R
+                </Button.Text>
+            </Button>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
