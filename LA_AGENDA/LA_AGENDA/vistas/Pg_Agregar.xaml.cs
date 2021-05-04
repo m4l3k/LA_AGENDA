@@ -24,7 +24,7 @@ namespace LA_AGENDA.vistas
 
         public Pg_Agregar()
         {
-            //Reunion = new Reuniones();//constructor inicial para la clase
+            Reunion = new Reuniones();//constructor inicial para la clase
             Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick); // establecer temporizador en cuanto se cambia de hora
             InitializeComponent();
 

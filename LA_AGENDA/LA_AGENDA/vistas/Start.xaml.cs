@@ -27,6 +27,11 @@ namespace LA_AGENDA.vistas
 
             };
 
+            btnRevisar.Clicked += (sender, e) =>
+            {
+                Navigation.PushAsync(new Pg_Listado());
+            };
+
             btnSalir.Clicked += (sender, e) =>
             {
                 return;
@@ -50,7 +55,7 @@ namespace LA_AGENDA.vistas
             });           
 
         }
-        //comment
+        //comment  2
         
         
         
