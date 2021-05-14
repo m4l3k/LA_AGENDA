@@ -7,7 +7,7 @@ namespace LA_AGENDA.Clases
 {
     public static class Constantes
     {
-        public const string DatabaseFilename = "TodoSQLite.db3";
+        public const string DatabaseFilename = "AgendSQLite.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             // open the database in read/write mode

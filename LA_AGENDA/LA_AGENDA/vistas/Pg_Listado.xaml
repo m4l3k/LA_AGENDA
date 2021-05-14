@@ -2,11 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LA_AGENDA.vistas.Pg_Listado">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Binding Lista">
-                
-            </Label>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout Margin="20,35,20,20">
+        <CollectionView x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}"
+                               FontSize="Medium" />
+                        <Label Text="{Binding Age}"
+                               TextColor="Silver"
+                               FontSize="Small" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>
