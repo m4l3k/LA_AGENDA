@@ -18,14 +18,33 @@ namespace LA_AGENDA.Clases
             _database.CreateTableAsync<Reuniones>().Wait();
         }
 
+        //--------METODOS Ins,Del,Sel 
+
+        //----------Mostrar Todo
         public Task<List<Reuniones>> GetReunionesAsync()
         {
             return _database.Table<Reuniones>().ToListAsync();
         }
 
+       
+
+        //----------Guardar
         public Task<int> SaveReunionAsync(Reuniones reunion)
         {
-            return _database.InsertAsync(reunion);
+            if (reunion.ID != 0)
+            {
+                return _database.UpdateAsync(reunion);
+            }
+            else
+            {
+                return _database.InsertAsync(reunion);
+            }            
+        }
+
+        //-----------Borrar
+        public Task<int> DeleteReunionAsync(Reuniones reunion)
+        {
+            return _database.DeleteAsync(reunion);
         }
     }
 }

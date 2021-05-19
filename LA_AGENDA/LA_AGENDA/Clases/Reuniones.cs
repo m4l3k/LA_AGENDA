@@ -20,7 +20,7 @@ namespace LA_AGENDA.Clases
 
         public override string ToString()
         {
-            return nombre;
+            return nombre +" " + lugar + "" + fecha;
         }
     }
 }

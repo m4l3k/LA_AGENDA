@@ -15,35 +15,34 @@ namespace LA_AGENDA.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Pg_Agregar : ContentPage
     {
-        DateTime _triggerTime;
-        TimeSpan timeSpan;
-        public Reuniones Reunion { get; set; }
+        bool dateIsSelected = false;
+        DateTime _triggerTime; // variable para alarma, almacenará la fecha y hora
+        TimeSpan timeSpan;       
 
-        public Start metodPrincipal = new Start();
+        public Start metodPrincipal = new Start(); //crear nuevo objeto 
         
 
-        public Pg_Agregar()
+        public Pg_Agregar() 
         {
-            Reunion = new Reuniones();//constructor inicial para la clase
             Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick); // establecer temporizador en cuanto se cambia de hora
             InitializeComponent();
-
         }
 
-        //METODOS FECHA
+
+        //-----------------METODOS FECHA
         void OnDateSelected(object sender, DateChangedEventArgs args)
         {
             Recalculate();
-            SetTriggerTime();
-            Reunion.dateIsSelected = true;
+            SetTriggerTime();            
+            dateIsSelected = true; 
         }
 
-        void OnSwitchToggled(object sender, ToggledEventArgs args)
+        void OnSwitchToggled(object sender, ToggledEventArgs args) //el switch de alarma
         {
             Recalculate();
         }
 
-        void Recalculate()
+        void Recalculate() //calcula los días faltantes hasta la fecha seleccionada
         {
             //TimeSpan timeSpan = endDatePicker.Date - startDatePicker.Date;
             timeSpan = endDatePicker.Date - startDatePicker.Date;
@@ -54,43 +53,51 @@ namespace LA_AGENDA.vistas
         {
             throw new NotImplementedException();
         }
-
-        //FIN METODOS FECHA
-
+        //--------------FIN METODOS FECHA
 
 
-        //METODOS EDITOR
+
+        //--------------METODO EDITOR para anotaciones
         public void onEditorCompleted(object sender, EventArgs e)
         {
             String text = ((Editor)sender).Text;
         }
-        //FIN METODOS EDITOR
+        //-------------FIN METODO EDITOR
 
-        //BOTON GUARDAR
-        public void onGuardar(object sender, EventArgs e)
+
+
+        //-------------BOTON GUARDAR
+        public async void onGuardar(object sender, EventArgs e) //no valida campo de comentarios
         {
             if (Nombre.Text.Length > 1)
             {
                 if (Lugar.Text.Length > 1)
                 {
-                    if (Reunion.dateIsSelected == true)
+                    if (dateIsSelected == true)
                     {
-                        Start.addReunion(Nombre.Text,Lugar.Text,_triggerTime.ToString(),Anotaciones.Text);
-                        /*
-                        Reunion.nombre = Nombre.Text;
-                        Reunion.lugar = Lugar.Text;
-                        Reunion.fecha = _triggerTime.ToString();
-                        Reunion.comentarios = Anotaciones.Text;
-                        */
+                        //Start.addReunion(Nombre.Text,Lugar.Text,_triggerTime.ToString(),Anotaciones.Text);
+                        //método asíncrono para guardar en la base de datos
+
+                        await App.Database.SaveReunionAsync(new Reuniones
+                        {
+                            nombre = Nombre.Text,
+                            lugar = Lugar.Text,
+                            fecha = _triggerTime.ToString(),
+                            comentarios = Anotaciones.Text
+                        });
+                        await Navigation.PopAsync();
+
+                        Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys
+                        // Necesito regresar a la pagina principal despues de guardar  
                     }
                 }
             }
 
 
-        }//FIN BOTON GUARDAR
+        }//--------------FIN BOTON GUARDAR
 
-        //METODOS HORA
-        bool OnTimerTick()
+        //---------------METODOS HORA
+        bool OnTimerTick() //Método para la alarma falta seleccionar el objeto que corresponda a la base, sólo selecciona el primer ingreso
         {
             if (_switch.IsToggled && DateTime.Now >= _triggerTime)
             {
@@ -113,44 +120,22 @@ namespace LA_AGENDA.vistas
             SetTriggerTime();
         }
 
-        // Alarma
-        /*void SetTriggerTime()
-        {
-            if (_switch.IsToggled)
-            {
-                _triggerTime = DateTime.Today + _timePicker.Time;
-                if (_triggerTime < DateTime.Now)
-                {
-                    _triggerTime += TimeSpan.FromDays(1);
-                }
-                FechayHora.Text = _triggerTime.ToString();
-            }
-        }*/
-
-        //test alarma
+       
         void  SetTriggerTime()
         {
             Recalculate();
-
-            //string fecha = timeSpan.ToString();
-            //string hora = _triggerTime.ToString();
+            
             _triggerTime = DateTime.Today + timeSpan + _timePicker.Time;
 
+            // si se selecciona alarma...
             if (_switch.IsToggled)
             {
-
                 //Fecha_resultante.Text = fecha;
                 Hora_resultante.Text = _triggerTime.ToString();
             }
+
+
         }
-
-
-
-        //FIN METODOS HORA
-
-
-
-
-
+        //--------------FIN METODOS HORA
     }
 }

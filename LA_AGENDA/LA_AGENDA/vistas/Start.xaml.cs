@@ -24,7 +24,6 @@ namespace LA_AGENDA.vistas
             btnNueva.Clicked += (sender, e) =>
             {
                 Navigation.PushAsync(new Pg_Agregar());
-
             };
 
             btnRevisar.Clicked += (sender, e) =>
@@ -37,6 +36,7 @@ namespace LA_AGENDA.vistas
                 return;
             };
             //BOTONES DE INTERFAZ
+
             BindingContext = this;  //enlace
         }
 

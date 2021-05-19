@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LA_AGENDA.vistas.Pg_Listado">
     <StackLayout Margin="20,35,20,20">
-        <CollectionView x:Name="collectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Name}"
+        <CollectionView x:Name="collectionView" SelectionMode="Single">
+            <CollectionView.ItemTemplate >
+                <DataTemplate >
+                    <StackLayout >
+                        <Label Text="{Binding nombre}"                               
                                FontSize="Medium" />
-                        <Label Text="{Binding Age}"
+                        <Label Text="{Binding lugar}"
                                TextColor="Silver"
                                FontSize="Small" />
                     </StackLayout>
