@@ -14,6 +14,9 @@ namespace LA_AGENDA.vistas
     public partial class Pg_Listado : ContentPage
     {
         //public static IList<Reuniones> Reunion_list { get; private set; }
+        public string selectedItem;
+        public Reuniones objReunion = new Reuniones(); //para intentar almacenar el objeto y poder borrar
+
 
         protected override async void OnAppearing()
         {
@@ -29,10 +32,19 @@ namespace LA_AGENDA.vistas
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string previous = (e.PreviousSelection.FirstOrDefault() as Reuniones)?.nombre;
-            string current = (e.CurrentSelection.FirstOrDefault() as Reuniones)?.nombre;
-            
+            selectedItem = (e.CurrentSelection.FirstOrDefault() as Reuniones)?.nombre;
+            objReunion = (e.CurrentSelection.FirstOrDefault() as Reuniones);
         }
 
+        public  async void EliminarPressed(object sender, EventArgs e)
+        {
+            if (selectedItem.Length!=0)
+            {
+                await App.Database.DeleteReunionAsync(objReunion);
+                OnAppearing();
+            }
+            //await App.Database.DeleteReunionAsync(e.CurrentSelection.FirstOrDefault() as Reuniones);
+        }
 
 
 

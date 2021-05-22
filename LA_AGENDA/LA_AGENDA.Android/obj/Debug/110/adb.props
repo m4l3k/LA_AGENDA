@@ -1,2 +1,2 @@
-AdbTarget=-s ZY2223BMDH
+AdbTarget=-s emulator-5554
 AdbOptions=
