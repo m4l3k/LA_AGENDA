@@ -13,7 +13,8 @@ namespace LA_AGENDA.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Pg_Listado : ContentPage
     {
-        public static IList<Reuniones> Reunion_list { get; private set; }
+        //public static IList<Reuniones> Reunion_list { get; private set; }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -24,6 +25,21 @@ namespace LA_AGENDA.vistas
             InitializeComponent();
             //((String Lista = Start.Reunion_list.ToString();
         }
-        
-    }
+
+        void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string previous = (e.PreviousSelection.FirstOrDefault() as Reuniones)?.nombre;
+            string current = (e.CurrentSelection.FirstOrDefault() as Reuniones)?.nombre;
+            
+        }
+
+
+
+
+
+
+
+
+
+    }//end class
 }

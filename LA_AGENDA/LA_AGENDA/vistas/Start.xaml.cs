@@ -1,12 +1,10 @@
 ﻿using LA_AGENDA.Clases;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 using Xamarin.Forms;
+
 using Xamarin.Forms.Xaml;
 
 namespace LA_AGENDA.vistas
@@ -33,12 +31,15 @@ namespace LA_AGENDA.vistas
 
             btnSalir.Clicked += (sender, e) =>
             {
-                return;
+                
+                System.Environment.Exit(0);
             };
             //BOTONES DE INTERFAZ
 
             BindingContext = this;  //enlace
         }
+
+        
 
 
         // nuevo bloque de métodos para agregar los datos que se ingresen desde Pg_Agregar hacia este listado de objetos

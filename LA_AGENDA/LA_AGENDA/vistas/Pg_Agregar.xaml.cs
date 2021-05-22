@@ -25,6 +25,7 @@ namespace LA_AGENDA.vistas
         public Pg_Agregar() 
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick); // establecer temporizador en cuanto se cambia de hora
+            
             InitializeComponent();
         }
 
@@ -69,35 +70,42 @@ namespace LA_AGENDA.vistas
         //-------------BOTON GUARDAR
         public async void onGuardar(object sender, EventArgs e) //no valida campo de comentarios
         {
-            if (Nombre.Text.Length > 1)
+            try
             {
-                if (Lugar.Text.Length > 1)
+                if (Nombre.Text.Length > 1)
                 {
-                    if (dateIsSelected == true)
+                    if (Lugar.Text.Length > 1)
                     {
-                        //Start.addReunion(Nombre.Text,Lugar.Text,_triggerTime.ToString(),Anotaciones.Text);
-                        //método asíncrono para guardar en la base de datos
-
-                        await App.Database.SaveReunionAsync(new Reuniones
+                        if (dateIsSelected == true)
                         {
-                            nombre = Nombre.Text,
-                            lugar = Lugar.Text,
-                            fecha = _triggerTime.ToString(),
-                            comentarios = Anotaciones.Text
-                        });
-                        await Navigation.PopAsync();
+                            //Start.addReunion(Nombre.Text,Lugar.Text,_triggerTime.ToString(),Anotaciones.Text);
+                            //método asíncrono para guardar en la base de datos
 
-                        Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys
-                        // Necesito regresar a la pagina principal despues de guardar  
+                            await App.Database.SaveReunionAsync(new Reuniones
+                            {
+                                nombre = Nombre.Text,
+                                lugar = Lugar.Text,
+                                fecha = _triggerTime.ToString(),
+                                comentarios = Anotaciones.Text
+                            });
+
+                            await Navigation.PopAsync();
+
+                            Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys
+                                                                                         // Necesito regresar a la pagina principal despues de guardar  
+
+                        }
                     }
                 }
             }
-
-
+            catch(System.NullReferenceException)
+            {
+                await DisplayAlert("Datos incompletos!!", "Debe llenar NOMBRE, LUGAR y FECHA", "Entendido");
+            }
         }//--------------FIN BOTON GUARDAR
 
         //---------------METODOS HORA
-        bool OnTimerTick() //Método para la alarma falta seleccionar el objeto que corresponda a la base, sólo selecciona el primer ingreso
+        bool OnTimerTick() //Método para la alarma falta seleccionar el objeto que corresponda a la base, sólo selecciona el primer ingreso, por defecto marca la alarma
         {
             if (_switch.IsToggled && DateTime.Now >= _triggerTime)
             {

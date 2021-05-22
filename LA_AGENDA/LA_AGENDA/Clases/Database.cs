@@ -45,6 +45,7 @@ namespace LA_AGENDA.Clases
         public Task<int> DeleteReunionAsync(Reuniones reunion)
         {
             return _database.DeleteAsync(reunion);
+            
         }
     }
 }

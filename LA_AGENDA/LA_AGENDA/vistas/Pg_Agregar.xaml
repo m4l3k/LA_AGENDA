@@ -24,9 +24,11 @@
                     <!--Ingreso Fecha-->
                     <Label Text="&#10;Seleccione la fecha para la Reunión: " >
                     </Label>
+                    
                     <!--Fecha inicial, invisible se auto selecciona dia en curso-->
                     <DatePicker IsVisible="false" x:Name="startDatePicker"
                         Format="D" DateSelected="OnDateSelected" />
+                    
                     <!--Fecha SELECCIONABLE-->
                     <DatePicker x:Name="endDatePicker" HorizontalOptions="Center"
                         MinimumDate="{Binding Source={x:Reference startDatePicker},Path=Date}"
@@ -42,11 +44,11 @@
                     <Label x:Name="resultLabel" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
                     <!--Switch de alarma predef Encendido no visible -->
-                    <StackLayout Orientation="Horizontal" IsVisible="false">
+                    <StackLayout Orientation="Horizontal" IsVisible="true">
                         <Label Text="Con Alerta ??" />
                         <Switch x:Name="_switch"                    
                     HorizontalOptions="EndAndExpand"
-                    IsToggled="True"
+                    IsToggled="False"
                     Toggled="AlarmSwitchToggled" />
                     </StackLayout>
                     
@@ -66,7 +68,7 @@
                 </StackLayout>
             </ScrollView>
             
-            <Button x:Name="btnGuardar" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onGuardar">
+            <Button x:Name="btnGuardar" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onGuardar" >
 
                 <Button.Text>
                     G U A R D A R
