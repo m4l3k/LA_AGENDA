@@ -6,7 +6,7 @@
              Background="{DynamicResource WindowBackgroundBrush}">
     <ContentPage.Content>
 
-        <StackLayout Padding="30">
+        <StackLayout Padding="20">
             <StackLayout HeightRequest="20" Spacing="20">
             </StackLayout>
 
@@ -22,21 +22,21 @@
                     </Entry>
 
                     <!--Ingreso Fecha-->
-                    <Label Text="&#10;Seleccione la fecha para la Reunión: " >
+                    <Label Text="&#10;Seleccione la fecha y hora: " TextColor="BurlyWood" FontAttributes="Bold">
                     </Label>
                     
                     <!--Fecha inicial, invisible se auto selecciona dia en curso-->
                     <DatePicker IsVisible="false" x:Name="startDatePicker"
-                        Format="D" DateSelected="OnDateSelected" />
+                        Format="D" DateSelected="OnDateSelected"  />
                     
                     <!--Fecha SELECCIONABLE-->
                     <DatePicker x:Name="endDatePicker" HorizontalOptions="Center"
                         MinimumDate="{Binding Source={x:Reference startDatePicker},Path=Date}"
-                        Format="D" Margin="10, 0, 0, 10"  DateSelected="OnDateSelected" />                    
+                        Format="D" Margin="10, 0, 0, 10" Unfocused="OnDateSelected" DateSelected="OnDateSelected" />                    
 
                     <!--Ingreso Hora-->
                     <TimePicker x:Name="_timePicker" HorizontalOptions="Center"
-                        Time="11:00:00"
+                        Time="06:00:00"
                         Format="T"
                         PropertyChanged="OnTimePickerPropertyChanged" />
 

@@ -15,6 +15,7 @@ namespace LA_AGENDA.vistas
     {
         //public static IList<Reuniones> Reunion_list { get; private set; }
         public string selectedItem;
+        public bool isSelected = false; // para segurar que algo fue seleccionado
         public Reuniones objReunion = new Reuniones(); //para intentar almacenar el objeto y poder borrar
 
 
@@ -31,6 +32,7 @@ namespace LA_AGENDA.vistas
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            isSelected = true;
             string previous = (e.PreviousSelection.FirstOrDefault() as Reuniones)?.nombre;
             selectedItem = (e.CurrentSelection.FirstOrDefault() as Reuniones)?.nombre;
             objReunion = (e.CurrentSelection.FirstOrDefault() as Reuniones);
@@ -38,12 +40,20 @@ namespace LA_AGENDA.vistas
 
         public  async void EliminarPressed(object sender, EventArgs e)
         {
-            if (selectedItem.Length!=0)
+            if(isSelected)
             {
-                await App.Database.DeleteReunionAsync(objReunion);
-                OnAppearing();
+                if (selectedItem.Length != 0)
+                {
+                    await App.Database.DeleteReunionAsync(objReunion);
+                    OnAppearing();
+                }
             }
-            //await App.Database.DeleteReunionAsync(e.CurrentSelection.FirstOrDefault() as Reuniones);
+            else
+            {
+                await DisplayAlert("Nada Seleccionado!!", "Realice su selección...", "Entendido");
+            }
+            
+            
         }
 
 

@@ -582,3 +582,5 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\lp\77\jl\files.cache
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\lp\80\jl\files.cache
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\lp\88\jl\files.cache
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\res\drawable\eliminar.png
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\res\drawable\edit.png

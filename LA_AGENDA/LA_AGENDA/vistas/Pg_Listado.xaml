@@ -2,34 +2,77 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LA_AGENDA.vistas.Pg_Listado">
-    <StackLayout Margin="20,35,20,20">
+    <StackLayout Margin="90,25,80,30">
         <CollectionView x:Name="collectionView" 
                 SelectionMode="Single"
                 SelectionChanged="OnCollectionViewSelectionChanged"> 
             <CollectionView.ItemTemplate >
-                <DataTemplate >
-                    
+                <DataTemplate >                    
                         <StackLayout>
-                        <Label Text="{Binding ID}"
-                               x:Name="Identificador"
-                               FontSize="Medium" />
-                        <Label Text="{Binding nombre}"                               
-                               FontSize="Medium" />
+                            <Label Text="{Binding ID}"
+                                   x:Name="Identificador"
+                                   FontSize="Medium" IsVisible="False" />
+                            <Label Text="{Binding nombre}"                               
+                                   FontSize="Medium" TextColor="Black"/>
                             <Label Text="{Binding lugar}"
-                               TextColor="Silver"
-                               FontSize="Small" />
-                        <Button Text="Eliminar" x:Name="btnEliminar" Clicked="EliminarPressed"></Button>
-                    </StackLayout>
-                       
-
+                                   TextColor="Silver"
+                                   FontSize="Small" />
+                            <Label Text="{Binding fecha}"
+                                   TextColor="CadetBlue"
+                                   FontSize="Small" />
+                        </StackLayout> 
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
+            </CollectionView.ItemTemplate>            
         </CollectionView>
+
+        <StackLayout>
+
+            <Grid RowSpacing="1" ColumnSpacing="2" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition />                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />                    
+                </Grid.ColumnDefinitions>
+
+
+
+                <BoxView/>
+                <ImageButton Grid.Column="0" Source="Eliminar.bmp" x:Name="btnEliminar" Clicked="EliminarPressed"
+                         HorizontalOptions="Start" VerticalOptions="Center" 
+                         Scale="0.50" BorderColor="Black"
+                         BorderWidth="5"
+                         CornerRadius="50">                 
+                </ImageButton>
+                <BoxView Grid.Column="1"/>
+                <ImageButton Grid.Column="1" Source="edit.png"      
+                         HorizontalOptions="Center" VerticalOptions="Center" 
+                         Scale="0.40" BorderColor="Black"
+                         BorderWidth="5"
+                         CornerRadius="50">
+                </ImageButton>
+                
+
+
+            </Grid>
+
+            <!--<ImageButton Source="Eliminar.bmp" x:Name="btnEliminar" Clicked="EliminarPressed"
+                         HorizontalOptions="End" VerticalOptions="Center" 
+                         Scale="0.50" BorderColor="Black"
+                         BorderWidth="5"
+                         CornerRadius="50"
+                         Background="white">
+            </ImageButton>-->                
+            
+            <!--<Button Text="Eliminar" x:Name="btnEliminar" Clicked="EliminarPressed"></Button>
+            <Frame HasShadow="True" BorderColor="Black" CornerRadius="50" WidthRequest="200" HeightRequest="100">
+                <Button x:Name="btnEliminar" Text="Eliminar" CornerRadius="50" Clicked="EliminarPressed" ImageSource="Eliminar.png"></Button>
+            </Frame>-->
+        </StackLayout>
         
         
-        <!--Comprobar cuál es el objeto seleccionado????-->
-        <Label x:Name="selectedID" Text="SELECCION!!"></Label>
+        
         
     </StackLayout>
     

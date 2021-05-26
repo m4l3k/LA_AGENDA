@@ -8,14 +8,14 @@
     <StackLayout    HorizontalOptions="Center" VerticalOptions="Center" >
         
         <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
-            <Button x:Name="btnNueva" Text="Nueva Reunión" CornerRadius="50" ></Button>
+            <Button x:Name="btnNueva" Text="Nueva" CornerRadius="50" ></Button>
         </Frame>
 
         <StackLayout HeightRequest="25" >
         </StackLayout>
 
         <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
-            <Button x:Name="btnRevisar" Text="Revisar Reuniones" CornerRadius="50"/>
+            <Button x:Name="btnRevisar" Text="Revisar" CornerRadius="50"/>
         </Frame>
       
         <StackLayout HeightRequest="25" >
@@ -25,5 +25,6 @@
             <Button x:Name="btnSalir" Text="Salir" BackgroundColor="Orange" CornerRadius="45"/>
         </Frame>
 
+      
     </StackLayout>
 </ContentPage>

@@ -15,7 +15,7 @@ namespace LA_AGENDA.Clases
         public string lugar { get; set; }
         public string comentarios { get; set; }
 
-        public bool dateIsSelected = false;
+        //public bool dateIsSelected = false;
 
 
         public override string ToString()

@@ -15,6 +15,10 @@ namespace LA_AGENDA.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Pg_Agregar : ContentPage
     {
+        
+
+
+
         bool dateIsSelected = false;
         DateTime _triggerTime; // variable para alarma, almacenará la fecha y hora
         TimeSpan timeSpan;       
@@ -72,11 +76,11 @@ namespace LA_AGENDA.vistas
         {
             try
             {
-                if (Nombre.Text.Length > 1)
+                if (Nombre.Text.Length != 0)
                 {
-                    if (Lugar.Text.Length > 1)
+                    if (Lugar.Text.Length != 0)
                     {
-                        if (dateIsSelected == true)
+                        if (dateIsSelected == true) //sino cambio de fecha un día adelante no se selecciona
                         {
                             //Start.addReunion(Nombre.Text,Lugar.Text,_triggerTime.ToString(),Anotaciones.Text);
                             //método asíncrono para guardar en la base de datos
@@ -95,6 +99,15 @@ namespace LA_AGENDA.vistas
                                                                                          // Necesito regresar a la pagina principal despues de guardar  
 
                         }
+                        else
+                        {
+                            await DisplayAlert("Fecha no seleccionada!!", "Seleccione una Fecha", "Entendido");
+                        }
+                        
+                    }
+                    else
+                    {
+                        await DisplayAlert("Lugar no ingresado!!", "Ingrese nombre del lugar", "Entendido");
                     }
                 }
             }
@@ -103,6 +116,7 @@ namespace LA_AGENDA.vistas
                 await DisplayAlert("Datos incompletos!!", "Debe llenar NOMBRE, LUGAR y FECHA", "Entendido");
             }
         }//--------------FIN BOTON GUARDAR
+
 
         //---------------METODOS HORA
         bool OnTimerTick() //Método para la alarma falta seleccionar el objeto que corresponda a la base, sólo selecciona el primer ingreso, por defecto marca la alarma
@@ -140,10 +154,13 @@ namespace LA_AGENDA.vistas
             {
                 //Fecha_resultante.Text = fecha;
                 Hora_resultante.Text = _triggerTime.ToString();
+                //resultLabel.Text = String.Format("{0} dia{1} hasta la fecha",timeSpan.Days, timeSpan.Days == 1 ? "" : "s");
+                //Hora_resultante.Text = String.Format("Faltan {0} dias, con {1} horas",timeSpan.TotalDays,timeSpan.TotalHours);
             }
 
 
         }
         //--------------FIN METODOS HORA
+        
     }
 }
