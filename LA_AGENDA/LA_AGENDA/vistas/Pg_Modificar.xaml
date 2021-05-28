@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LA_AGENDA.vistas.Pg_Modificar"
+             Title="Modificar Reunión">
+    <ContentPage.Content>
+
+        <StackLayout Padding="20">
+            <StackLayout HeightRequest="20" Spacing="20">
+            </StackLayout>
+
+            <ScrollView >
+                <StackLayout HeightRequest="700" Spacing="20" HorizontalOptions="Center">
+
+                    <!--Ingreso de Nombre-->
+                    <Entry x:Name="Nombre" TextTransform="Uppercase" PlaceholderColor="Gray" Placeholder="Nuevo nombre??" HorizontalTextAlignment="Center">
+                    </Entry>
+
+                    <!--Ingreso Lugar-->
+                    <Entry x:Name="Lugar" PlaceholderColor="Gray" Placeholder="Nuevo Lugar??" HorizontalTextAlignment="Center">
+                    </Entry>
+
+                    <!--Ingreso Fecha-->
+                    <Label Text="&#10;Seleccione la fecha y hora: " TextColor="BurlyWood" FontAttributes="Bold">
+                    </Label>
+
+                    <!--Fecha inicial, invisible se auto selecciona dia en curso-->
+                    <DatePicker IsVisible="false" x:Name="startDatePicker"
+                        Format="D"  />
+                    <!--DateSelected="OnDateSelected" -->
+
+                    <!--Fecha SELECCIONABLE-->
+                    <DatePicker x:Name="endDatePicker" HorizontalOptions="Center"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker},Path=Date}"
+                        Format="D" Margin="10, 0, 0, 10" Unfocused="OnDateSelected" DateSelected="OnDateSelected" />
+                    <!---->
+
+                    <!--Ingreso Hora-->
+                    <TimePicker x:Name="_timePicker" HorizontalOptions="Center" PropertyChanged="OnTimePickerPropertyChanged"
+                        Time="06:00:00"
+                        Format="T"
+                         />
+                    <!---->
+
+                    <!--Muestra cúantos dias faltan -->
+                    <Label x:Name="resultLabel" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                    <!--Switch de alarma predef Encendido no visible -->
+                    <StackLayout Orientation="Horizontal" IsVisible="true">
+                        <Label Text="Con Alerta ??" />
+                        <Switch x:Name="_switch"                    
+                    HorizontalOptions="EndAndExpand"
+                    IsToggled="False" Toggled="AlarmSwitchToggled"
+                     />
+                        <!---->
+                    </StackLayout>
+
+                    <!--Comprobadores temporales-->
+                    <StackLayout>
+                       
+                        <Label Text="Día y Hora de la reunión: "></Label>
+                        <Label x:Name="Hora_resultante" Text=""></Label>
+                       
+                    </StackLayout>
+
+                    <!--Ingreso Anotaciones-->
+                    <Editor x:Name="Anotaciones" Placeholder="Notas..." AutoSize="TextChanges" MaxLength="200" IsSpellCheckEnabled="False" Completed="onEditorCompleted"
+                             >
+                        <!---->
+                    </Editor>
+
+                </StackLayout>
+            </ScrollView>
+
+            <Button x:Name="btnActualizar" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onActualizar" >
+                <!---->
+                <Button.Text>
+                    A C T U A L I Z A R
+                </Button.Text>
+            </Button>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

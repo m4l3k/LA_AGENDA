@@ -51,12 +51,40 @@ namespace LA_AGENDA.vistas
             else
             {
                 await DisplayAlert("Nada Seleccionado!!", "Realice su selección...", "Entendido");
-            }
-            
-            
+            } 
         }
 
+        public async void ModificarPressed(object sender, EventArgs e)
+        {
 
+           await Navigation.PushAsync(new Pg_Modificar(objReunion));
+        }
+
+        public async void DeleteAllPressed(object sender, EventArgs e)
+        {
+            //genera error SQLite.SQLiteException: 'not an error'
+            try
+            {
+                bool answer = await DisplayAlert("Eliminar TODO?", "Seguro de eliminar??", "SI", "NO");
+
+
+                if (answer)
+                {
+                    await App.Database.DeleteReunionesAsync();
+                }
+                else
+                {
+                    return;
+                }
+                
+            }
+            catch(SQLite.SQLiteException)
+            {
+                await DisplayAlert("Cotenido eliminado!!", "", "Entendido");
+            }
+            
+            await Navigation.PopAsync();
+        }
 
 
 

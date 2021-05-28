@@ -29,7 +29,8 @@
 
             <Grid RowSpacing="1" ColumnSpacing="2" HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition />                    
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -46,16 +47,21 @@
                          CornerRadius="50">                 
                 </ImageButton>
                 <BoxView Grid.Column="1"/>
-                <ImageButton Grid.Column="1" Source="edit.png"      
+                <ImageButton Grid.Column="1" Source="edit.png" x:Name="btnModificar" Clicked="ModificarPressed"    
                          HorizontalOptions="Center" VerticalOptions="Center" 
                          Scale="0.40" BorderColor="Black"
                          BorderWidth="5"
                          CornerRadius="50">
-                </ImageButton>
+                </ImageButton>    
                 
 
 
             </Grid>
+
+            <Button  x:Name="btnDeleteAll" Clicked="DeleteAllPressed" Text="Borrar todo" 
+                     CornerRadius="50" TextColor="Red"
+                     FontAttributes="Bold" BorderColor="DarkGoldenrod" BorderWidth="2">
+            </Button>
 
             <!--<ImageButton Source="Eliminar.bmp" x:Name="btnEliminar" Clicked="EliminarPressed"
                          HorizontalOptions="End" VerticalOptions="Center" 
