@@ -12,10 +12,11 @@ namespace LA_AGENDA.Clases
         public int ID { get; set; }
         public string nombre { get; set; }
         public string fecha { get; set; }
+        public DateTime fecha1 { get; set; }
         public string lugar { get; set; }
         public string comentarios { get; set; }
 
-        //public bool dateIsSelected = false;
+        
 
 
         public override string ToString()

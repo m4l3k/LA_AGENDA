@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LA_AGENDA.vistas.Pg_Listado">
+             x:Class="LA_AGENDA.vistas.Pg_Pasadas">
     <StackLayout Margin="90,25,80,30">
         <CollectionView x:Name="collectionView" 
                 SelectionMode="Single"
@@ -37,8 +37,6 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-
-
                 <BoxView/>
                 <ImageButton Grid.Column="0" Source="Eliminar.bmp" x:Name="btnEliminar" Clicked="EliminarPressed"
                          HorizontalOptions="Start" VerticalOptions="Center" 
@@ -53,35 +51,10 @@
                          BorderWidth="5"
                          CornerRadius="50">
                 </ImageButton>
-
-
-
             </Grid>
 
-            <Button  x:Name="btnDeleteAll" Clicked="DeleteAllPressed" Text="Borrar todo" 
-                     CornerRadius="50" TextColor="Red"
-                     FontAttributes="Bold" BorderColor="DarkGoldenrod" BorderWidth="2">
-            </Button>
 
-            <!--<ImageButton Source="Eliminar.bmp" x:Name="btnEliminar" Clicked="EliminarPressed"
-                         HorizontalOptions="End" VerticalOptions="Center" 
-                         Scale="0.50" BorderColor="Black"
-                         BorderWidth="5"
-                         CornerRadius="50"
-                         Background="white">
-            </ImageButton>-->
-
-            <!--<Button Text="Eliminar" x:Name="btnEliminar" Clicked="EliminarPressed"></Button>
-            <Frame HasShadow="True" BorderColor="Black" CornerRadius="50" WidthRequest="200" HeightRequest="100">
-                <Button x:Name="btnEliminar" Text="Eliminar" CornerRadius="50" Clicked="EliminarPressed" ImageSource="Eliminar.png"></Button>
-            </Frame>-->
         </StackLayout>
 
-
-
-
     </StackLayout>
-
-
-
 </ContentPage>

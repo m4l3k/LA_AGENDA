@@ -25,13 +25,9 @@ namespace LA_AGENDA
         }
 
 
-
-
-
         public App()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
             MainPage = new NavigationPage(new Start());
         }
 
@@ -45,8 +41,6 @@ namespace LA_AGENDA
 
         protected override void OnResume()
         {
-        }
-
-        
+        }        
     }
 }

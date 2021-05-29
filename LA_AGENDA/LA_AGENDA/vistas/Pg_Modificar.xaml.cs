@@ -15,7 +15,6 @@ namespace LA_AGENDA.vistas
     public partial class Pg_Modificar : ContentPage
     {
         public Reuniones objReunion = new Reuniones();
-        // bool dateIsSelected = false;
         public String mapaBase;
         DateTime _triggerTime;
         TimeSpan timeSpan;
@@ -28,33 +27,25 @@ namespace LA_AGENDA.vistas
             Lugar.Text = reunion.lugar;
             endDatePicker.Date = Convert.ToDateTime(reunion.fecha);
             Anotaciones.Text = reunion.comentarios;
-           // dateIsSelected = true;
+            // dateIsSelected = true;
         }
 
 
-        public async void onActualizar(object sender, EventArgs e) 
+        public async void onActualizar(object sender, EventArgs e)
         {
             try
             {
-                // if (Nombre.Text.Length != 0)
                 if (!Nombre.Text.Equals(""))
                 {
-                    if (Lugar.Text.Length != 0)
+                    if (!Lugar.Text.Equals(""))
                     {
                         objReunion.nombre = Nombre.Text;
                         objReunion.lugar = Lugar.Text;
                         objReunion.fecha = _triggerTime.ToString();
                         objReunion.comentarios = Anotaciones.Text;
 
-                        //await App.Database.ModifyReunionAsync(objReunion);
                         await App.Database.SaveReunionAsync(objReunion);
-
                         await Navigation.PopAsync();
-                            
-
-                            //Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys                                                                                           
-
-                        
                     }
                     else
                     {
@@ -68,14 +59,6 @@ namespace LA_AGENDA.vistas
             }
         }// FIN BOTON MODIFICAR
 
-        //método temporal para acceder a la base por una query
-        public async void onDbbMap(object sender, EventArgs e)
-        {
-            String listado;
-            await App.Database.GetAllTablesAsync();
-
-        }
-        //
 
 
         public void onEditorCompleted(object sender, EventArgs e)
@@ -96,8 +79,7 @@ namespace LA_AGENDA.vistas
         void OnDateSelected(object sender, DateChangedEventArgs args)
         {
             Recalculate();
-            SetTriggerTime();
-           // dateIsSelected = true;
+            SetTriggerTime();           
         }
 
         void OnSwitchToggled(object sender, ToggledEventArgs args) //el switch de alarma
@@ -106,7 +88,7 @@ namespace LA_AGENDA.vistas
         }
 
         void Recalculate() //calcula los días faltantes hasta la fecha seleccionada
-        {            
+        {
             timeSpan = endDatePicker.Date - startDatePicker.Date;
             resultLabel.Text = String.Format("{0} dia{1} hasta la fecha", timeSpan.Days, timeSpan.Days == 1 ? "" : "s");
         }
@@ -131,17 +113,9 @@ namespace LA_AGENDA.vistas
             _triggerTime = DateTime.Today + timeSpan + _timePicker.Time;
             // si se selecciona alarma...
             if (_switch.IsToggled)
-            {               
-                Hora_resultante.Text = _triggerTime.ToString();                
+            {
+                Hora_resultante.Text = _triggerTime.ToString();
             }
         }
-
-
-
-
-
-
-
-
     }
 }

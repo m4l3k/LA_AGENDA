@@ -29,37 +29,26 @@ namespace LA_AGENDA.vistas
                 Navigation.PushAsync(new Pg_Listado());
             };
 
+            btnRevision.Clicked += (sender, e) =>
+            {
+                Navigation.PushAsync(new Pg_Revisar());
+            };
+
+            /*
+            btnPendientes.Clicked += (sender, e) =>
+            {
+                Navigation.PushAsync(new Pendientes());
+            };
+            */
+
             btnSalir.Clicked += (sender, e) =>
             {
-                
+
                 System.Environment.Exit(0);
             };
             //BOTONES DE INTERFAZ
 
             BindingContext = this;  //enlace
-        }
-
-        
-
-
-        // nuevo bloque de métodos para agregar los datos que se ingresen desde Pg_Agregar hacia este listado de objetos
-        public static void addReunion(String name, String place, String date, String comment)
-        {
-            Reunion_list.Add(new Reuniones
-            {
-
-                nombre = name,
-                lugar = place,
-                fecha = date,
-                comentarios = comment
-                
-            });           
-
-        }
-        //comment  2
-        
-        
-        
-
+        }       
     }
 }

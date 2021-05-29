@@ -4,27 +4,40 @@
              x:Class="LA_AGENDA.vistas.Start"
              Title="A G E N D A"
              Background="{DynamicResource WindowBackgroundBrush}">
-    
+
     <StackLayout    HorizontalOptions="Center" VerticalOptions="Center" >
-        
+
         <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
-            <Button x:Name="btnNueva" Text="Nueva" CornerRadius="50" ></Button>
+            <Button x:Name="btnNueva" Text="N U E V A" BackgroundColor="LightGreen" CornerRadius="50" FontAttributes="Bold" ></Button>
+        </Frame>
+
+        <StackLayout HeightRequest="25" >
+        </StackLayout>
+
+        <Frame HasShadow="True" BorderColor="Black" CornerRadius="50" IsVisible="False">
+            <Button x:Name="btnRevisar" Text="R E V I S A R" CornerRadius="50" FontAttributes="Bold"/>
         </Frame>
 
         <StackLayout HeightRequest="25" >
         </StackLayout>
 
         <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
-            <Button x:Name="btnRevisar" Text="Revisar" CornerRadius="50"/>
+            <Button x:Name="btnRevision" Text="Revisar Agenda" BackgroundColor="LightBlue" CornerRadius="45" FontAttributes="Bold"/>
         </Frame>
-      
-        <StackLayout HeightRequest="25" >
+
+        <StackLayout HeightRequest="100">
         </StackLayout>
 
+        <!--
         <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
-            <Button x:Name="btnSalir" Text="Salir" BackgroundColor="Orange" CornerRadius="45"/>
+            <Button x:Name="btnPendientes" Text="Pendientes" BackgroundColor="Orange" CornerRadius="45"/>
+        </Frame>
+        -->
+
+        <Frame HasShadow="True" BorderColor="Black" CornerRadius="50" >
+            <Button x:Name="btnSalir" Text="S A L I R" BackgroundColor="Orange" CornerRadius="45" FontAttributes="Italic,Bold"/>
         </Frame>
 
-      
+
     </StackLayout>
 </ContentPage>

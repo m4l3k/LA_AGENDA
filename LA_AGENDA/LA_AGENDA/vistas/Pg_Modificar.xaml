@@ -57,10 +57,10 @@
 
                     <!--Comprobadores temporales-->
                     <StackLayout>
-                       
+
                         <Label Text="Día y Hora de la reunión: "></Label>
                         <Label x:Name="Hora_resultante" Text=""></Label>
-                       
+
                     </StackLayout>
 
                     <!--Ingreso Anotaciones-->
@@ -77,17 +77,8 @@
                 <Button.Text>
                     A C T U A L I Z A R
                 </Button.Text>
-            </Button>
-            <Button x:Name="btnDBBMap" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onDbbMap" >
-                <!---->
-                <Button.Text>
-                   Revisar Mapa
-                </Button.Text>
-            </Button>
+            </Button>      
 
-            <Editor x:Name="MapaBdd" AutoSize="TextChanges" MaxLength="200" IsSpellCheckEnabled="False" Text="">
-
-            </Editor>
 
         </StackLayout>
 

@@ -16,3 +16,7 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Agregar.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Listado.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Modificar.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pendientes.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Pendientes.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Revisar.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Pasadas.xaml.g.cs

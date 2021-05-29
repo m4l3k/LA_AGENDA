@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LA_AGENDA.vistas.Pg_Revisar">
+    <ContentPage.Content>
+        <StackLayout    HorizontalOptions="Center" VerticalOptions="Center" Spacing="50">
+
+            <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+                <Button x:Name="btnPendientes" Text="Pendientes" CornerRadius="45" FontAttributes="Bold" FontSize="Medium"/>
+            </Frame>
+
+            <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+                <Button x:Name="btnPasadas" Text="Pasadas" CornerRadius="45" FontAttributes="Bold" FontSize="Medium"/>
+            </Frame>
+
+            <Frame HasShadow="True" BorderColor="Black" CornerRadius="50">
+                <Button x:Name="btnTodas" Text="T o d a s" CornerRadius="45" FontAttributes="Bold" FontSize="Medium"/>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

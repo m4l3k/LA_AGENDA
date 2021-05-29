@@ -11,28 +11,27 @@ using Xamarin.Forms.Xaml;
 namespace LA_AGENDA.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Pg_Listado : ContentPage
+    public partial class Pendientes : ContentPage
     {
-        //
-       
         
-        //public static IList<Reuniones> Reunion_list { get; private set; }
+        DateTime fechaActual;
         public string selectedItem;
         public bool isSelected = false; // para segurar que algo fue seleccionado
         public Reuniones objReunion = new Reuniones(); //para intentar almacenar el objeto y poder borrar
 
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            collectionView.ItemsSource = await App.Database.GetReunionesAsync();
-            
+            fechaActual = DateTime.Now;
+            collectionView.ItemsSource = await App.Database.GetFutureReunionesAsync(fechaActual);
         }
-        public Pg_Listado()
+
+
+            public Pendientes()
         {
             InitializeComponent();
-            //((String Lista = Start.Reunion_list.ToString();
         }
+
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -42,9 +41,9 @@ namespace LA_AGENDA.vistas
             objReunion = (e.CurrentSelection.FirstOrDefault() as Reuniones);
         }
 
-        public  async void EliminarPressed(object sender, EventArgs e)
+        public async void EliminarPressed(object sender, EventArgs e)
         {
-            if(isSelected)
+            if (isSelected)
             {
                 if (selectedItem.Length != 0)
                 {
@@ -55,45 +54,21 @@ namespace LA_AGENDA.vistas
             else
             {
                 await DisplayAlert("Nada Seleccionado!!", "Realice su selección...", "Entendido");
-            } 
+            }
         }
 
         public async void ModificarPressed(object sender, EventArgs e)
         {
 
-           await Navigation.PushAsync(new Pg_Modificar(objReunion));
+            await Navigation.PushAsync(new Pg_Modificar(objReunion));
         }
 
-        public async void DeleteAllPressed(object sender, EventArgs e)
-        {
-            //genera error SQLite.SQLiteException: 'not an error'
-            try
-            {
-                bool answer = await DisplayAlert("Eliminar TODO?", "Seguro de eliminar??", "SI", "NO");
-
-
-                if (answer)
-                {
-                    await App.Database.DeleteReunionesAsync();
-                }
-                else
-                {
-                    return;
-                }
-                
-            }
-            catch(SQLite.SQLiteException)
-            {
-                await DisplayAlert("Cotenido eliminado!!", "", "Entendido");
-            }
-            
-            await Navigation.PopAsync();
-        }
+        
 
 
 
 
 
 
-    }//end class
+    }
 }
