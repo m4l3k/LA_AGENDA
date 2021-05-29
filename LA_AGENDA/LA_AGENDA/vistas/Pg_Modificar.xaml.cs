@@ -15,53 +15,46 @@ namespace LA_AGENDA.vistas
     public partial class Pg_Modificar : ContentPage
     {
         public Reuniones objReunion = new Reuniones();
-        bool dateIsSelected = false;
+        // bool dateIsSelected = false;
+        public String mapaBase;
         DateTime _triggerTime;
         TimeSpan timeSpan;
 
         public Pg_Modificar(Reuniones reunion)
         {
             InitializeComponent();
+            objReunion = reunion;
             Nombre.Text = reunion.nombre;
             Lugar.Text = reunion.lugar;
             endDatePicker.Date = Convert.ToDateTime(reunion.fecha);
             Anotaciones.Text = reunion.comentarios;
-            dateIsSelected = true;
+           // dateIsSelected = true;
         }
 
-        public async void onActualizar(object sender, EventArgs e) //no valida campo de comentarios
+
+        public async void onActualizar(object sender, EventArgs e) 
         {
             try
             {
-                if (Nombre.Text.Length != 0)
+                // if (Nombre.Text.Length != 0)
+                if (!Nombre.Text.Equals(""))
                 {
                     if (Lugar.Text.Length != 0)
                     {
-                        if (dateIsSelected == true) //sino cambio de fecha un día adelante no se selecciona
-                        {
+                        objReunion.nombre = Nombre.Text;
+                        objReunion.lugar = Lugar.Text;
+                        objReunion.fecha = _triggerTime.ToString();
+                        objReunion.comentarios = Anotaciones.Text;
 
-                            objReunion.nombre = Nombre.Text;
-                            objReunion.lugar = Lugar.Text;
-                            objReunion.fecha = _triggerTime.ToString();
-                            objReunion.comentarios = Anotaciones.Text;
-                            //SaveReunionAsync ModifyReunionAsync
-                            await App.Database.ModifyReunionAsync(objReunion);//new Reuniones
-                            //{
-                                ///nombre = Nombre.Text,
-                                //lugar = Lugar.Text,
-                                //fecha = _triggerTime.ToString(),
-                                //comentarios = Anotaciones.Text
-                            //});
+                        //await App.Database.ModifyReunionAsync(objReunion);
+                        await App.Database.SaveReunionAsync(objReunion);
 
-                            await Navigation.PopAsync();
+                        await Navigation.PopAsync();
+                            
 
-                            Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys                                                                                           
+                            //Nombre.Text = Lugar.Text = Anotaciones.Text = string.Empty;  //Limpiar el texto de los entrys                                                                                           
 
-                        }
-                        else
-                        {
-                            await DisplayAlert("Fecha no seleccionada!!", "Seleccione una Fecha", "Entendido");
-                        }
+                        
                     }
                     else
                     {
@@ -73,7 +66,16 @@ namespace LA_AGENDA.vistas
             {
                 await DisplayAlert("Datos incompletos!!", "Debe llenar NOMBRE, LUGAR y FECHA", "Entendido");
             }
-        }// FIN BOTON GUARDAR
+        }// FIN BOTON MODIFICAR
+
+        //método temporal para acceder a la base por una query
+        public async void onDbbMap(object sender, EventArgs e)
+        {
+            String listado;
+            await App.Database.GetAllTablesAsync();
+
+        }
+        //
 
 
         public void onEditorCompleted(object sender, EventArgs e)

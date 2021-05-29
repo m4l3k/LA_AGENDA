@@ -78,6 +78,16 @@
                     A C T U A L I Z A R
                 </Button.Text>
             </Button>
+            <Button x:Name="btnDBBMap" BorderColor="LightBlue" BorderWidth="5" CornerRadius="30" Clicked="onDbbMap" >
+                <!---->
+                <Button.Text>
+                   Revisar Mapa
+                </Button.Text>
+            </Button>
+
+            <Editor x:Name="MapaBdd" AutoSize="TextChanges" MaxLength="200" IsSpellCheckEnabled="False" Text="">
+
+            </Editor>
 
         </StackLayout>
 

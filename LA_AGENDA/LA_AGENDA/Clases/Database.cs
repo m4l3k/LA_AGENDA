@@ -9,13 +9,24 @@ namespace LA_AGENDA.Clases
 {
     public class Database
     {
-        
+        //
+        //SQLite.TableMapping dbbmap;
+        //public String dbbmap;
+        public String dbbQuery;
+        Task<TableMapping> mapaDeTabla;
+        //
         readonly SQLiteAsyncConnection _database;
 
         public Database(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Reuniones>().Wait();
+            // dbbmap = _database.GetMappingAsync<Reuniones>().ToString();
+            //dbbmap = _database.GetMappingAsync<Reuniones>();
+            //Task<TableMapping>SQLiteAsyncConnection
+                //<Reuniones>();
+            //_database.
+           
         }
 
         //--------METODOS Ins,Del,Sel 
@@ -23,7 +34,7 @@ namespace LA_AGENDA.Clases
         //----------Mostrar Todo
         public Task<List<Reuniones>> GetReunionesAsync()
         {
-            return _database.Table<Reuniones>().ToListAsync();
+            return _database.Table<Reuniones>().Where(t => t.nombre == "4564Mxx").OrderBy(t => t.nombre).ToListAsync();
         }
 
        
@@ -86,7 +97,28 @@ namespace LA_AGENDA.Clases
             
         }
 
-        
+        /*
+        public String GetDbbMap(Reuniones reunion)
+        {
+            // dbbQuery = _database.QueryAsync(mapaDeTabla, "", reunion.ID);
+            // return dbbmap;
+            dbbQuery = "UPDATE ";
+
+
+        }
+        */
+
+        public async Task<List<Reuniones>> GetAllTablesAsync()
+        {
+            string listado;
+            //string queryString = $"SELECT nombre FROM sqlite_master WHERE type = 'table'";
+            // return await _database.QueryAsync<Reuniones>(queryString).ConfigureAwait(false);
+            string queryString = $"SELECT * FROM sqlite_master";
+            return await _database.QueryAsync<Reuniones>(queryString);
+
+        }
+
+
 
 
 
