@@ -10,7 +10,7 @@ namespace LA_AGENDA.Clases
     public class Database
     {
         public String dbbQuery;
-        Task<TableMapping> mapaDeTabla;
+        /*Task<TableMapping> mapaDeTabla;*/
 
         readonly SQLiteAsyncConnection _database;
 
@@ -20,8 +20,7 @@ namespace LA_AGENDA.Clases
             _database.CreateTableAsync<Reuniones>().Wait();
         }
 
-        //--------METODOS Ins,Del,Sel 
-
+        //--------METODOS Ins,Del,Update 
         //----------Mostrar Todo
         public Task<List<Reuniones>> GetReunionesAsync()
         {

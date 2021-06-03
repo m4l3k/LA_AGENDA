@@ -17,8 +17,6 @@ namespace LA_AGENDA.Clases
         public string comentarios { get; set; }
 
         
-
-
         public override string ToString()
         {
             return nombre +" " + lugar + "" + fecha;

@@ -44,7 +44,7 @@
                     <Label x:Name="resultLabel" FontAttributes="Bold" HorizontalTextAlignment="Center" />
 
                     <!--Switch de alarma predef Encendido no visible -->
-                    <StackLayout Orientation="Horizontal" IsVisible="true">
+                    <StackLayout Orientation="Horizontal" IsVisible="false">
                         <Label Text="Con Alerta ??" />
                         <Switch x:Name="_switch"                    
                     HorizontalOptions="EndAndExpand"
