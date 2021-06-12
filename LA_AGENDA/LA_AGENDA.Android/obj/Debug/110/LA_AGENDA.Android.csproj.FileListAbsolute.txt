@@ -10,7 +10,6 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\bin\Debug\LA_A
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\build.props
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\adb.props
-C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\LA_AGENDA.Android.csprojAssemblyReference.cache
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\res.flag
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\lp\45\jl\files.cache
@@ -584,3 +583,4 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\lp\88\jl\files.cache
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\res\drawable\eliminar.png
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\res\drawable\edit.png
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA.Android\obj\Debug\110\LA_AGENDA.Android.csproj.AssemblyReference.cache

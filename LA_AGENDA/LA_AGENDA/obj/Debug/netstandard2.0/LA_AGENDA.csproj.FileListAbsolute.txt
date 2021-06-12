@@ -2,7 +2,6 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\LA_AGENDA.dll
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\ref\LA_AGENDA.dll
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\bin\Debug\netstandard2.0\LA_AGENDA.pdb
-C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.csprojAssemblyReference.cache
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Start.xaml.g.cs
@@ -20,3 +19,4 @@ C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Pendientes.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Revisar.xaml.g.cs
 C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\vistas\Pg_Pasadas.xaml.g.cs
+C:\Users\m4l3k\source\repos\LA_AGENDA\LA_AGENDA\LA_AGENDA\obj\Debug\netstandard2.0\LA_AGENDA.csproj.AssemblyReference.cache
